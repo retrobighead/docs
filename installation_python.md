@@ -1,4 +1,4 @@
-[top](./index_md)
+[top](./index.md)
 
 ### pyenv / pyenv-virtualenv
 
@@ -75,4 +75,4 @@ $ pip install stable-baselines[mpi]==2.8.0
 $ pip install torch torchvision
 ```
 
-[top](./index_md)
+[top](./index.md)

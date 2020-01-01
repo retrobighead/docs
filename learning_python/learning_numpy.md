@@ -1,3 +1,5 @@
+@import "{{ site.theme }}";
+
 <!-- パンくずリスト -->
 [top](../index.md) > [Numpy](./learning_numpy.md)
 
@@ -12,7 +14,7 @@
 
 
 <!-- 基礎 -->
-### 0. 準備
+## 0. 準備
 ```python
 import numpy as np
 
@@ -24,10 +26,17 @@ import numpy as np
 ### 配列の作成
 
 ```python
+# 基本的な配列の作成
 data = np.array([9, 2, 3, 4, 10, 6, 7, 8, 1, 5])
 ```
 
 ### データ型
+
+```python
+data = np.array([1, 2, 3], dtype=np.int16)  # 型を指定して配列の作成
+data.dtype  # 型の確認
+data.astype(np.uint32)  # 型の変更
+```
 
 #### ``int``: 符号付き整数
 
@@ -57,3 +66,9 @@ data = np.array([9, 2, 3, 4, 10, 6, 7, 8, 1, 5])
 |`float128`|128ビット浮動小数点数||
 
 #### `bool` 型
+
+|データ型|内容|数値範囲|
+|:--:|:--|:--|
+|`bool`|`True`か`False`の真偽値||
+
+###

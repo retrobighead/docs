@@ -1,1 +1,2 @@
-[top](./index.md)
+<!-- パンくずリスト -->
+[top](../index.md) > [top](../index.md)

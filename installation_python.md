@@ -61,7 +61,8 @@ $ pip install jupyterlab
 
 # OpenAI Gym のインストール
 $ pip install gym
-$ pip install gym[atari] # gym[all]
+$ pip install 'gym[atari]'
+# gym[all] ではエラー
 
 # stable-baselines のインストール
 $ brew install cmake openmpi

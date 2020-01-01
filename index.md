@@ -9,10 +9,10 @@
 
 ### Learning about Python
 
-- [Numpy](./learning_python/learning_numpy.md)
-- [Scipy](./learning_python/learning_scipy.md)
-- [Matplotlib](./learning_python/learning_matplotlib.md)
-- [Pandas](./learning_python/learning_pandas.md)
+- [Numpy](./learning_python/about_numpy.md)
+- [Scipy](./learning_python/about_scipy.md)
+- [Matplotlib](./learning_python/about_matplotlib.md)
+- [Pandas](./learning_python/about_pandas.md)
 
 ### Learning about Unity
 

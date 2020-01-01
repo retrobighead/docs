@@ -1,5 +1,3 @@
-@import "{{ site.theme }}";
-
 <!-- パンくずリスト -->
 [top](../index.md) > [Numpy](./learning_numpy.md)
 

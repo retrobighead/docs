@@ -1,5 +1,8 @@
 # テスト
 
+### 環境設定
+
+- [Python の環境設定](./installation_python.md)
 
 # h1
 ## h2

@@ -1,5 +1,5 @@
 <!-- パンくずリスト -->
-[top](../index.md) > [Learning Python](./learning_numpy.md) > [About NumPy](./learning_numpy.md)
+[top](../index.md) > [Learning Python](./contents.md) > [About NumPy](./learning_numpy.md)
 
 <!-- タイトル -->
 # Numpy
@@ -9,6 +9,15 @@
 
 - [準備](#準備)
 - [Numpy配列の基礎](#NumPy配列の基礎)
+  - [配列の作成](#配列の作成)
+  - [データ型](#データ型)
+  - [次元数と要素数](#次元数と要素数)
+  - [基本演算](#基本演算)
+  - [ソート](#ソート)
+  - [最大/最小/合計/累積](#最大/最小/合計/累積)
+  - [乱数](#乱数)
+  - [データの標本](#データの標本)
+  - [行列](#行列)
 
 
 <!-- 基礎 -->
@@ -19,7 +28,7 @@ import numpy as np
 %precision 3  # jupyter: 少数第3位まで表示
 ```
 
-## 1. NumPy配列の基礎
+## 1. Numpy配列の基礎
 
 ### 配列の作成
 
@@ -116,7 +125,7 @@ data[::-1].sort()
 data # => array([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])
 ```
 
-### 最大 / 最小 / 合計 / 累積
+### 最大/最小/合計/累積
 
 ```python
 data = np.array([9, 2, 3, 4, 10, 6, 7, 8, 1, 5])
@@ -139,7 +148,22 @@ import numpy.random as random
 # シードが同じであれば, 発生する乱数も同じになる
 random.seed(0)
 
+# 一様分布
+random.rand(10) # [0.0, 1.0) から10個
+random.random_sample(10)　# [0.0, 1.0) から10個
+random.randint(0, 100, 10) # [0, 100) から10個の整数
 
+# 正規分布
+random.randn(10) # 平均0, 分散1の正規分布から10個
+random.normal(50, 10, 10) # 平均50, 分散10の正規分布から10個
+
+# 二項分布
+random.binomial(5, 0.3, 10) # p=0.3 で成功する試行を5回した場合の成功数を10個
+
+# ベータ分布, ガンマ分布, カイ二乗分布
+random.beta(2, 2, 10) # a=2, b=2 のベータ分布から10個
+random.gamma(2, 2, 10) # shape=2. scale=2. のガンマ分布から10個
+random.chisquare(2, 10) # 自由度2のカイ二乗分布から10個
 ```
 
 ### データの標本
@@ -152,4 +176,35 @@ np.random.choice(data, 10)
 
 # 10回の非復元抽出(重複なし)
 np.random.choice(data, 10, replace=False)
+```
+
+### 行列
+
+```python
+data = np.arange(9).reshape(3, 3)
+# => array([[0, 1, 2], [3, 4, 5], [6, 7, 8]])
+
+# スライシング
+data[1, :] # 2行目 => array([3, 4, 5])
+data[:, 0] # 1列目 => array([0, 3, 6])
+data[0, 1:3] # 1行目, 2,3列目 => array([1, 2])
+```
+
+### 特別な行列の作成
+
+```python
+# 全てを0で初期化した配列
+np.zeros((2, 3), dtype=np.int8)
+# => array([[0, 0, 0],
+#           [0, 0, 0]])
+
+# 全てを1で初期化した配列
+np.ones((2, 3), dtype=np.float16)
+# => array([[1., 1., 1.],
+#           [1., 1., 1.]])
+
+# 全てを任意の数で初期化した配列
+np.full((2, 3), np.pi)
+# => array([[3.142, 3.142, 3.142],
+#           [3.142, 3.142, 3.142]])
 ```

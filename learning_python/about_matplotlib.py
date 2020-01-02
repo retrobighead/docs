@@ -1,2 +1,2 @@
 <!-- パンくずリスト -->
-[top](../index.md) > [Learning Python](./learning_matplotlib.md) > [About matplotlib](./learning_matplotlib.md)
+[top](../index.md) > [Learning Python](./contents.md) > [About matplotlib](./learning_matplotlib.md)

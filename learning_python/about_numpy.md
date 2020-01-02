@@ -1,5 +1,5 @@
 <!-- パンくずリスト -->
-[top](../index.md) > [Learning Python](./contents.md) > [About NumPy](./learning_numpy.md)
+[top](../index.md) > [Learning Python](./contents.md) > [About NumPy](./about_numpy.md)
 
 <!-- タイトル -->
 # Numpy
@@ -150,7 +150,7 @@ random.seed(0)
 
 # 一様分布
 random.rand(10) # [0.0, 1.0) から10個
-random.random_sample(10)　# [0.0, 1.0) から10個
+random.random_sample(10) # [0.0, 1.0) から10個
 random.randint(0, 100, 10) # [0, 100) から10個の整数
 
 # 正規分布
@@ -207,4 +207,33 @@ np.ones((2, 3), dtype=np.float16)
 np.full((2, 3), np.pi)
 # => array([[3.142, 3.142, 3.142],
 #           [3.142, 3.142, 3.142]])
+
+# 単位行列
+np.eye(3) # = np.identity(3)
+# => array([[1., 0., 0.],
+#           [0., 1., 0.],
+#           [0., 0., 1.]])
 ```
+
+### 行列の内積
+
+```python
+array1 = np.arange(0, 9).reshape(3, 3)
+# => array([[0, 1, 2],
+#           [3, 4, 5],
+#           [6, 7, 8]])
+array2 = np.arange(9, 18).reshape(3, 3)
+# => array([[9, 10, 11],
+#           [12, 13, 14],
+#           [15, 16, 17]])
+
+array1.dot(array2) # 結果は同じ
+np.dot(array1, array2)
+# => array([[ 42,  45,  48],
+#           [150, 162, 174],
+#           [258, 279, 300]])
+```
+
+## 2. Numpy計算の応用
+
+"準備中"

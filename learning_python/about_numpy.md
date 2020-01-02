@@ -4,11 +4,13 @@
 <!-- タイトル -->
 # Numpy
 
+***
+
 <!-- 目次 -->
 ### Contents
 
-- [準備](#準備)
-- [Numpy配列の基礎](#NumPy配列の基礎)
+1. [準備](#準備)
+1. [NumPy配列の基礎](#NumPy配列の基礎)
   - [配列の作成](#配列の作成)
   - [データ型](#データ型)
   - [次元数と要素数](#次元数と要素数)
@@ -17,8 +19,17 @@
   - [最大/最小/合計/累積](#最大/最小/合計/累積)
   - [乱数](#乱数)
   - [データの標本](#データの標本)
-  - [行列](#行列)
+  - [行列の生成](#行列の生成)
+  - [特別な行列の生成](#特別な行列の生成)
+  - [行列変換](#行列変換)
+  - [行列の内積](#行列の内積)
+1. [NumPy計算の応用](#NumPy計算の応用)
+  - [配列のコピー](#配列のコピー)
+  - [ブールインデックス参照](#ブールインデックス参照(マスク処理))
+  - [条件制御](#条件制御)
+  - [ユニバーサル関数](#ユニバーサル関数)
 
+***
 
 <!-- 基礎 -->
 ## 0. 準備
@@ -27,6 +38,8 @@ import numpy as np
 
 %precision 3  # jupyter: 少数第3位まで表示
 ```
+
+***
 
 ## 1. Numpy配列の基礎
 
@@ -94,7 +107,7 @@ data.size  # 配列の要素数 => 6
 data1 = np.array([1, 2, 3], dtype=np.float16)
 data2 = np.array([3, 2, 1], dtype=np.float16)
 
-# 足し算
+# 足し算 (引き算も同様)
 data1 + 2 # => array([3., 4., 5.])
 data1 + data2 # => array([4., 4., 4.])
 
@@ -178,7 +191,7 @@ np.random.choice(data, 10)
 np.random.choice(data, 10, replace=False)
 ```
 
-### 行列
+### 行列の生成
 
 ```python
 data = np.arange(9).reshape(3, 3)
@@ -215,6 +228,19 @@ np.eye(3) # = np.identity(3)
 #           [0., 0., 1.]])
 ```
 
+### 行列変換
+
+```python
+data = np.arange(0, 9).reshape(3, 3)
+# => array([[0, 3, 6],
+#           [1, 4, 7],
+#           [2, 5, 8]])
+
+# 行列の転置
+data.T
+# =>
+```
+
 ### 行列の内積
 
 ```python
@@ -234,6 +260,119 @@ np.dot(array1, array2)
 #           [258, 279, 300]])
 ```
 
+***
+
 ## 2. Numpy計算の応用
 
-"準備中"
+### 配列のコピー
+
+```python
+# numpy.array型の変数[data]は参照型の変数であるため,
+# 別の変数[alt]に代入されて, 代入先の変数[alt]に変更があった時,
+# もとの変数[data]にまでデータが反映されてしまう
+data = np.array([1, 2, 3])
+alt = data
+alt[1] = 0
+alt # => array([1, 0, 3])
+data # => array([1, 0, 3])
+
+# 対応策として, copy() を使う方法がある.
+data = np.array([1, 2, 3])
+alt = data.copy()
+alt[1] = 0
+alt # => array([1, 0, 3])
+data # => array([1, 2, 3])
+```
+
+### ブールインデックス参照 (マスク処理)
+
+```python
+columns = np.array(['a', 'b', 'b'])
+data = np.arange(9).reshape(3, 3)
+
+# ブールインデックスの作成
+columns == 'b'
+# => array([False, True, True])
+data > 4  
+# => array([[False, False, False],
+#           [False, False, True],
+#           [True, True, True]])
+
+# ブールインデックスを用いた参照
+data[columns == 'b']
+# => array([[3, 4, 5],
+#           [6, 7, 8]])
+
+data[data > 4]
+# => array([5, 6, 7, 8])
+```
+
+### 条件制御
+
+```python
+# np.where(条件配列, Trueに対応する配列, Falseに対応する配列)
+cond = np.array([True, False, False, True, False])
+array1 = np.array([1, 2, 3, 4, 5])
+array2 = np.array([-1, -2, -3, -4, -5])
+
+np.where(cond, array1, array2)
+# => array([1, -2, -3, 4, -5])
+```
+
+### ユニバーサル関数
+
+全ての要素に適応される処理を行いたい時, ユニバーサル関数を使用する.
+
+[主なやつ](https://docs.pyq.jp/python/pydata/numpy/universal_function.html)
+
+```python
+data = np.array([-1, 2, -3])
+
+np.abs(data)
+# => array([1, 2, 3])
+```
+
+#### 三角関数
+
+|名前|処理|
+|:--|:--|
+|sin|sin関数|
+|cos|cos関数|
+|tan|tan関数|
+|arcsin|sinの逆関数|
+|arccos|cosの逆関数|
+|arctan|tanの逆関数|
+
+#### 整数
+
+|名前|処理|
+|:--|:--|
+|ceil|小数部の切り上げ(天井)|
+|floor|小数部の切り下げ(床)|
+|rint|整数に四捨五入する|
+|modf|小数部と整数部に分ける|
+|abs|絶対値を取る|
+|sign|負: -1, 0: 0, 正: 1 を返す|
+
+
+#### 指数/対数/累乗/平方根
+
+|名前|処理|
+|:--|:--|
+|exp|ネイピア指数関数|
+|log|底がネイピア数(e)の対数|
+|log2|底が2の対数|
+|log10|底が10の対数|
+|square|平方|
+|sqrt|平方根|
+
+#### 判定
+
+|名前|処理|
+|:--|:--|
+|isnan|nan かどうかを判定|
+|isinf|infかどうかを判定|
+|isfinite|nanでもinfでもなければTrue|
+|isin|別の配列に含まれる要素かどうか|
+
+### 最小/最大/平均/合計

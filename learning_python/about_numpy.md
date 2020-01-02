@@ -1,5 +1,5 @@
 <!-- パンくずリスト -->
-[top](../index.md) > [Numpy](./learning_numpy.md)
+[top](../index.md) > [Learning Python](./learning_numpy.md) > [About NumPy](./learning_numpy.md)
 
 <!-- タイトル -->
 # Numpy

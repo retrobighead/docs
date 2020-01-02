@@ -1,4 +1,5 @@
-[top](./index.md)
+<!-- パンくずリスト -->
+[top](./index.md) > [Pythonの環境構築](./installation_python.md)
 
 ### pyenv / pyenv-virtualenv
 

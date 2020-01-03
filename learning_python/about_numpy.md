@@ -1,3 +1,4 @@
+#yuki_edy 参上
 <!-- パンくずリスト -->
 [top](../index.md) > [Learning Python](./contents.md) > [About NumPy](./about_numpy.md)
 

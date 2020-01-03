@@ -24,4 +24,4 @@
 
 ### Projects
 
-- [Space Invaders](https://github.com/retrobighead/space_invaders)
+- [Space Invaders](./projects/about_space_invaders.md)

@@ -1,9 +1,11 @@
-#Space_invadersの変数あれこれ
+# Space_invadersの変数あれこれ
 documentation
 
-https://gym.openai.com/envs/SpaceInvaders-v0/
+- [OpenAI gym - SpaceInvaders-v0](https://gym.openai.com/envs/SpaceInvaders-v0/)
+- [Github - Space Invaders](https://github.com/retrobighead/space_invaders)
 
-##実行したコード
+
+## 実行したコード
 
 ```python
 import gym
@@ -72,9 +74,9 @@ inf = histories[:,3]
 
 
 
-##変数あれこれ
+## 変数あれこれ
 
-###1.observation_next
+### 1.observation_next
 中身を確認
 ```python
 print('type:', type(obs[1])) #各々(2step目)の型を確認
@@ -82,7 +84,7 @@ obs[1].shape #配列のshapeを確認
 ```
 これで、各々は210(画面の縦)\*160(画面の横)\*3(channel数)のnumpy配列なのがわかる
 
-###2.reward
+### 2.reward
 同様に
 ```python
 print('type:', type(rew[1]))
@@ -169,7 +171,7 @@ out[]:
 
 (配点の詳細は要調査)
 
-###3.done
+### 3.done
 ゲーム終了時のみTrue、それ以外はFalseになる。
 
 例えば、
@@ -184,7 +186,7 @@ out[]:
 ```
 みたいな感じでゲームが終了したstepを取り出せる。
 
-###4.info
+### 4.info
 
 ```python
 inf[1]

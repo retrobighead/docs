@@ -4,6 +4,7 @@
 
 - [Python の環境構築](./installation_python.md)
 - [Unity の環境構築]()
+- [bash and zsh](./bash.md)
 
 [プログラミングでよく使う英単語のまとめ](https://qiita.com/Ted-HM/items/7dde25dcffae4cdc7923)
 

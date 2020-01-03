@@ -323,11 +323,9 @@ np.where(cond, array1, array2)
 
 全ての要素に適応される処理を行いたい時, ユニバーサル関数を使用する.
 
-[主なやつ](https://docs.pyq.jp/python/pydata/numpy/universal_function.html)
-
 ```python
+# abs: 絶対値の例
 data = np.array([-1, 2, -3])
-
 np.abs(data)
 # => array([1, 2, 3])
 ```

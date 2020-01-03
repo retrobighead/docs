@@ -1,11 +1,14 @@
-# Space_invadersの変数あれこれ
-documentation
+<!-- パンくずリスト -->
+[top](../index.md) > [Projects](../index.md) > [Space Invaders](./about_space_invaders.md)
+
+### Links
 
 - [OpenAI gym - SpaceInvaders-v0](https://gym.openai.com/envs/SpaceInvaders-v0/)
-- [Github - Space Invaders](https://github.com/retrobighead/space_invaders)
+- [Github - retrobighead/space_invaders](https://github.com/retrobighead/space_invaders)
 
+## Space Invaders
 
-## 実行したコード
+### 実行したコード
 
 ```python
 import gym
@@ -13,24 +16,23 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
+# 環境の構築
 env = gym.make('SpaceInvaders-v4')
+
+# 環境情報の確認
 print('Observation Space: ', env.observation_space)
 print('Action Space: ', env.action_space)
 print('Action meanings: ', env.unwrapped.get_action_meanings())
 
-# 初期状態の確認
+# 環境の初期化
 observation = env.reset()
 
-frames = []
 histories = []
 
+fig = plt.figure() # アニメーション実行用
+frames = []　# アニメーションフレームの格納
 
-observation = env.reset()
-
-fig = plt.figure()
-
-
-
+# 1000ステップ分の実行
 for step in range(1000):
     frame = plt.imshow(observation)
     frames.append([frame])
@@ -47,15 +49,13 @@ for step in range(1000):
 ani = animation.ArtistAnimation(fig, frames, interval=50)
 plt.show()
 ```
+
 これで変数historiesの中に、左から
 
-・observation_next
-
-・reward
-
-・done
-
-・info
+- observation_next
+- reward
+- done
+- info
 
 が格納されるので、この中身を確認してみよう。
 
@@ -63,7 +63,6 @@ plt.show()
 
 の前に...
 ```python
-
 histories = np.array(histrories) #np.arrayにすることで、histories[i,j]みたいな操作ができる。
 obs = histories[:,0]
 rew = histories[:,1]
@@ -72,11 +71,9 @@ inf = histories[:,3]
 ```
 で中身を切り分けておく。
 
+### 変数あれこれ
 
-
-## 変数あれこれ
-
-### 1.observation_next
+#### 1. observation_next
 中身を確認
 ```python
 print('type:', type(obs[1])) #各々(2step目)の型を確認
@@ -84,7 +81,7 @@ obs[1].shape #配列のshapeを確認
 ```
 これで、各々は210(画面の縦)\*160(画面の横)\*3(channel数)のnumpy配列なのがわかる
 
-### 2.reward
+#### 2. reward
 同様に
 ```python
 print('type:', type(rew[1]))
@@ -152,7 +149,6 @@ array([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
        0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
        0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
        0.0, 0.0, 0.0, 0.0, 0.0], dtype=object)
-
 ```
 
 hitに応じて5.0刻みで与えられるみたい。
@@ -171,13 +167,13 @@ out[]:
 
 (配点の詳細は要調査)
 
-### 3.done
+#### 3.done
 ゲーム終了時のみTrue、それ以外はFalseになる。
 
 例えば、
 ```python
 where_done = [i for i, x in enumerate(don) if x == True]
-where_done[0] #donがTrueになるのは1回しかないので、このリストの長さは必ず1になるはず。
+where_done[0] #doneがTrueになるのは1回しかないので、このリストの長さは必ず1になるはず。
 ```
 
 ```python
@@ -186,7 +182,7 @@ out[]:
 ```
 みたいな感じでゲームが終了したstepを取り出せる。
 
-### 4.info
+#### 4.info
 
 ```python
 inf[1]
@@ -209,4 +205,3 @@ out[]:
 0
 ```
 となる。
-

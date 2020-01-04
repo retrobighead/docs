@@ -12,7 +12,7 @@
 
 ## ベースライン
 
-```python
+```python3
 import gym
 import numpy as np
 import matplotlib.pyplot as plt
@@ -115,12 +115,19 @@ repeat_action_probability の設定値の違い
 - (何もなし): (2, 3, 4)の内ランダムな回数分行動を繰り返す
 - Deterministic: 必ず4回連続で行動を繰り返す設定
 
-### 環境に関する情報取得
+### 基本操作
 
 強化学習においては,
 > **agent**(行動主体)が **environment**(環境)に **action**(行動)として働きかけ, その結果として, **observation**(状態)を観測し, **reward**(報酬)を得る.
 
 ことを一つのサイクルとして, 行動の方針を学習していく.
+
+```python
+
+
+```
+
+### 環境に関する情報取得
 
 環境に関する各種変数についての情報を取得する方法を以下に示す.
 
@@ -147,6 +154,10 @@ env.reward_range
 env.unwrapped.ale.lives()
 ```
 
-## 実装
+#### 自作の環境を作成する
 
-"準備中"
+- [Github - openai/gim/docs](https://github.com/openai/gym/blob/master/docs/creating-environments.md)
+- [gym-soccer example](https://github.com/openai/gym-soccer)
+
+
+## 実装

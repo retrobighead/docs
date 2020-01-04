@@ -163,10 +163,74 @@ env.reward_range
 env.unwrapped.ale.lives()
 ```
 
-### 自作の環境を作成する
+### 環境のラッパーについて
 
 - [Github - openai/gim/docs](https://github.com/openai/gym/blob/master/docs/creating-environments.md)
-- [gym-soccer example](https://github.com/openai/gym-soccer)
+- [TF 2.0 for Reinforcement Learning - Gym Wrappers](https://alexandervandekleut.github.io/gym-wrappers/)
+
+```python
+# 環境の処理を拡張
+# gym.Wrapper クラスを継承
+class TestWrapper(gym.Wrapper):
+  def __init__(self, env):
+    super().__init__(self, env)
+    self.env = env
+
+  def reset(self, **kwargs):
+    self.env.reset(**kwargs)
+    # 初期化処理を修正
+
+  def step(self, action):
+    observation, reward, done, info = self.env.step(action)
+    # 状況, 報酬, 終了判定, 追加情報に追加処理
+    return observation, reward, done, info
+```
+
+他にも以下の3つのラッパーが提供されている.
+
+- gym.ObservationWrapper
+- gym.RewardWrapper
+- gym.ActionWrapper
+
+```python
+class TestObservationWrapper(gym.ObservationWrapper):
+  def __init__(self, env):
+    super().__init__(env)
+
+  def observation(self, observation):
+    # observation を加工
+    return observation
+```
+
+```python
+class RewardWrapper(gym.RewardWrapper):
+  def __init__(self, env):
+    super().__init__(env)
+
+  def reward(self, reward):
+    # reward を加工
+    return reward
+```
+
+```python
+class RewardWrapper(gym.ActionWrapper):
+  def __init__(self, env):
+    super().__init__(env)
+
+  def action(self, action):
+    # action を加工
+    return action
+```
+
+### Atari の Wrapper
+
+Atari のゲームを実行するための環境のラッパーが OpenAI によって提供されている.
+以下のファイルの内容を解説する.
+
+- [baselines/atari_wrapper.py](https://github.com/openai/baselines/blob/master/baselines/common/atari_wrappers.py)
+
 
 
 ## 実装
+
+[Class Diagram](https://www.draw.io/#G1DmheQ8ubFrXAY8a4eYMdgeaplbKroL9f)

@@ -80,6 +80,41 @@ env = gym.make('MsPacman-v4')
 env_ids = [spec.id for spec in gym.envs.registry.all()]
 ```
 
+#### Space Invaders 環境について
+
+Space Invaders のゲームについて, 提供されている環境は12個ある.
+
+- SpaceInvaders-v0
+- SpaceInvaders-v4
+- SpaceInvadersDeterministic-v0
+- SpaceInvadersDeterministic-v4
+- SpaceInvadersNoFrameskip-v0
+- SpaceInvadersNoFrameskip-v4
+- SpaceInvaders-ram-v0
+- SpaceInvaders-ram-v4
+- SpaceInvaders-ramDeterministic-v0
+- SpaceInvaders-ramDeterministic-v4
+- SpaceInvaders-ramNoFrameskip-v0
+- SpaceInvaders-ramNoFrameskip-v4
+
+##### v0 / v4
+
+repeat_action_probability の設定値の違い
+
+- v0: 0.25 の割合で入力に関係なく一つ前の行動が繰り返される設定
+- v4: 0.00 の割合 (= 一つ前の行動を繰り返す設定なし)
+
+##### ram
+
+- ram 無し: 画面のピクセル値を状態とする
+- ram 有り: 画面のピクセル値ではなく, ram(メモリ)の値を状態とする
+
+##### Deterministic / ramNoFrameskip
+
+- NoFrameskip: 行動の繰り返しなし
+- (何もなし): (2, 3, 4)の内ランダムな回数分行動を繰り返す
+- Deterministic: 必ず4回連続で行動を繰り返す設定
+
 #### 環境に関する情報取得
 
 強化学習においては,

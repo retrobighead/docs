@@ -30,10 +30,12 @@ print('Action meanings: ', env.unwrapped.get_action_meanings())
 observation = env.reset()
 
 fig = plt.figure() # アニメーション実行用
-frames = []　# アニメーションフレームの格納用変数
+frames = [] # アニメーションフレームの格納用変数
 
 # 1000ステップ分の実行
 for step in range(1000):
+    # env.render() # 環境を描画
+
     # アニメーションフレームの格納
     frame = plt.imshow(observation)
     frames.append([frame])
@@ -46,7 +48,7 @@ for step in range(1000):
     #   observation -- 観測される状態
     #   reward      -- 報酬
     #   done        -- 終了判定
-    #   info        -- デバッグ情報等
+    #   info        -- 追加情報等
     # 各種変数については後述...
     observation, reward, done, info = env.step(action)
 
@@ -106,8 +108,6 @@ env.observation_space.low  # 各要素に対する最小値
 # 報酬の上限と下限を取得
 env.reward_range
 
-# Space Invaders の場合, 残機の取得が必要
+# Space Invaders の場合, 残機の取得が可能
 env.unwrapped.ale.lives()
 ```
-
-#### 環境の起動 / 実行

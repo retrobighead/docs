@@ -111,3 +111,7 @@ env.reward_range
 # Space Invaders の場合, 残機の取得が可能
 env.unwrapped.ale.lives()
 ```
+
+### 実装
+
+"準備中"

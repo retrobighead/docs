@@ -12,7 +12,7 @@
 
 ## ベースライン
 
-```python3
+```python
 import gym
 import numpy as np
 import matplotlib.pyplot as plt
@@ -82,7 +82,7 @@ env_ids = [spec.id for spec in gym.envs.registry.all()]
 
 ### Space Invaders 環境について
 
-Space Invaders のゲームについて, 提供されている環境は12個ある.
+Space Invaders のゲームについて, 提供されている環境は12個.
 
 - SpaceInvaders-v0
 - SpaceInvaders-v4
@@ -123,6 +123,17 @@ repeat_action_probability の設定値の違い
 ことを一つのサイクルとして, 行動の方針を学習していく.
 
 ```python
+# 環境の初期化し, 初期状態を返す
+observation = env.reset()
+
+# 環境に対して行動を実行し, 結果を取得
+# この結果を使用して, 次の行動を決定する
+action = 0
+observation, reward, done, info = env.step(action)
+
+# 環境を描画
+# 別ウィンドウで描画されるため, 邪魔なときは matplotlib.animation 等を使用
+env.render()
 
 
 ```
@@ -154,7 +165,7 @@ env.reward_range
 env.unwrapped.ale.lives()
 ```
 
-#### 自作の環境を作成する
+### 自作の環境を作成する
 
 - [Github - openai/gim/docs](https://github.com/openai/gym/blob/master/docs/creating-environments.md)
 - [gym-soccer example](https://github.com/openai/gym-soccer)

@@ -134,8 +134,6 @@ observation, reward, done, info = env.step(action)
 # 環境を描画
 # 別ウィンドウで描画されるため, 邪魔なときは matplotlib.animation 等を使用
 env.render()
-
-
 ```
 
 ### 環境に関する情報取得

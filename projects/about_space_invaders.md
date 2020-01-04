@@ -233,6 +233,15 @@ Atari のゲームを実行するための環境のラッパーが OpenAI によ
 
 - [baselines/atari_wrapper.py](https://github.com/openai/baselines/blob/master/baselines/common/atari_wrappers.py)
 
+また, Space Invaders においては,
+
+- NoopResetEnv
+- MaxAndSkipEnv
+- EpisodicLifeEnv
+- WarpFrame
+
+を使用する.
+
 #### NoopResetEnv
 
 同じ状態から学習がスタートするのを防ぐため, 環境をリセットした時に数フレームだけ何もしない状態を行ってから学習を始める(学習スタートを遅らせる).
@@ -241,7 +250,7 @@ Atari のゲームを実行するための環境のラッパーが OpenAI によ
 noop_max = 30
 env = NoopResetEnv(env, noop_max)
 # noops = np.random.randint(1, noop_max+1)
-# noops フレームだけ何もしない状態を行う
+# noops フレームだけ何もしない状態を環境リセット時に行う
 ```
 
 #### FireResetEnv
@@ -250,13 +259,50 @@ FIRE を行うまで固定されているゲーム用に, リセット時に自�
 
 ```python
 env = FireResetEnv(env)
-# 環境のリセットと同時に FIRE を行うことでゲームを動かす
 ```
 
 #### EpisodicLifeEnv
 
+Agent が複数ライフを持つ設定のゲームの場合, 1機減る毎に終了判定(done=True)を出力し, ライフが0になった時に本当に環境をリセットする. そうすることで, 多様な初期状態から学習を始められる.
 
+```python
+env = EpisodicLifeEnv(env)
+```
 
+#### MaxAndSkipEnv
+
+Atari のゲームは60Hzで進行するため, 複数フレームをまとめて同じ行動を入力するようにして学習させる. 数まとめて行動を入力し, 最後の2フレームの内の有効なフレームを状態sとして返すようにする.
+(Atari の環境では奇数フレームと偶数フレームで出力が異なる場合があるため, 後ろの2つの画像で最大値を取ることで有効フレームと判定する.)
+
+```python
+skip = 4
+env = MaxAndSkipEnv(env, 4)
+```
+
+#### ClipRewardEnv
+
+報酬を {-1, 0, 1} に正規化する.
+
+```python
+env = ClipRewardEnv(env) # 入力は env
+```
+
+#### WarpFrame
+
+(210, 160, 3) の状態画像を (84, 84, 1) のグレースケール画像に変換して状態として返す.
+
+```python
+env = WarpFrame(env, width=84, height=84, grayscale=True)
+```
+
+#### FrameStack
+
+kフレーム分画像をスタックして, reset(), step() の時にkフレーム分の画像を返す.
+
+```python
+k = 4
+env = FrameStack(env, k)
+```
 
 ## 実装
 

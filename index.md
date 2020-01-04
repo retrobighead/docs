@@ -23,6 +23,10 @@
 
 "準備中"
 
+### Reinforcement Learning
+
+- [作りながら学ぶ強化学習](https://book.mynavi.jp/manatee/series/detail/id=87626)
+
 ### Learning about Algorithms
 
 - [Codility](./codility/contents.md)

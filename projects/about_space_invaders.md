@@ -122,6 +122,8 @@ repeat_action_probability の設定値の違い
 
 ことを一つのサイクルとして, 行動の方針を学習していく.
 
+環境について, 主に以下の3つのメソッドを使用する.
+
 ```python
 # 環境の初期化し, 初期状態を返す
 observation = env.reset()
@@ -165,6 +167,8 @@ env.unwrapped.ale.lives()
 
 ### 環境のラッパーについて
 
+gym によって提供されている環境や各種変数はそのラッパーを作成することで, 簡単にカスタマイズができる.
+
 - [Github - openai/gim/docs](https://github.com/openai/gym/blob/master/docs/creating-environments.md)
 - [TF 2.0 for Reinforcement Learning - Gym Wrappers](https://alexandervandekleut.github.io/gym-wrappers/)
 
@@ -203,7 +207,7 @@ class TestObservationWrapper(gym.ObservationWrapper):
 ```
 
 ```python
-class RewardWrapper(gym.RewardWrapper):
+class TestRewardWrapper(gym.RewardWrapper):
   def __init__(self, env):
     super().__init__(env)
 
@@ -213,7 +217,7 @@ class RewardWrapper(gym.RewardWrapper):
 ```
 
 ```python
-class RewardWrapper(gym.ActionWrapper):
+class TestActionWrapper(gym.ActionWrapper):
   def __init__(self, env):
     super().__init__(env)
 
@@ -225,9 +229,32 @@ class RewardWrapper(gym.ActionWrapper):
 ### Atari の Wrapper
 
 Atari のゲームを実行するための環境のラッパーが OpenAI によって提供されている.
-以下のファイルの内容を解説する.
+以下のファイルで提供されているラッパーについて説明する.
 
 - [baselines/atari_wrapper.py](https://github.com/openai/baselines/blob/master/baselines/common/atari_wrappers.py)
+
+#### NoopResetEnv
+
+同じ状態から学習がスタートするのを防ぐため, 環境をリセットした時に数フレームだけ何もしない状態を行ってから学習を始める(学習スタートを遅らせる).
+
+```python
+noop_max = 30
+env = NoopResetEnv(env, noop_max)
+# noops = np.random.randint(1, noop_max+1)
+# noops フレームだけ何もしない状態を行う
+```
+
+#### FireResetEnv
+
+FIRE を行うまで固定されているゲーム用に, リセット時に自動で FIRE する.
+
+```python
+env = FireResetEnv(env)
+# 環境のリセットと同時に FIRE を行うことでゲームを動かす
+```
+
+#### EpisodicLifeEnv
+
 
 
 

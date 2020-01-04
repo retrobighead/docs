@@ -6,11 +6,11 @@
 - [OpenAI gym - SpaceInvaders-v0](https://gym.openai.com/envs/SpaceInvaders-v0/)
 - [Github - retrobighead/space_invaders](https://github.com/retrobighead/space_invaders)
 
-## Space Invaders
+# Space Invaders
 
 
 
-### ベースライン
+## ベースライン
 
 ```python
 import gym
@@ -61,14 +61,14 @@ ani = animation.ArtistAnimation(fig, frames, interval=50)
 plt.show()
 ```
 
-### 環境について
+## 環境について
 
 OpenAI Gym で提供されている環境については以下を参照.
 
 - [OpenAI Gym Environments](https://gym.openai.com/envs/#atari)
 - [Github - openai/gym](https://github.com/openai/gym/blob/master/docs/environments.md#third-party-environments)
 
-#### 環境の構築
+### 環境の構築
 
 ```python
 # 様々な環境が指定可能
@@ -80,7 +80,7 @@ env = gym.make('MsPacman-v4')
 env_ids = [spec.id for spec in gym.envs.registry.all()]
 ```
 
-#### Space Invaders 環境について
+### Space Invaders 環境について
 
 Space Invaders のゲームについて, 提供されている環境は12個ある.
 
@@ -97,25 +97,25 @@ Space Invaders のゲームについて, 提供されている環境は12個あ�
 - SpaceInvaders-ramNoFrameskip-v0
 - SpaceInvaders-ramNoFrameskip-v4
 
-##### v0 / v4
+#### v0 / v4
 
 repeat_action_probability の設定値の違い
 
 - v0: 0.25 の割合で入力に関係なく一つ前の行動が繰り返される設定
 - v4: 0.00 の割合 (= 一つ前の行動を繰り返す設定なし)
 
-##### ram
+#### ram
 
 - ram 無し: 画面のピクセル値を状態とする
 - ram 有り: 画面のピクセル値ではなく, ram(メモリ)の値を状態とする
 
-##### Deterministic / ramNoFrameskip
+#### Deterministic / ramNoFrameskip
 
 - NoFrameskip: 行動の繰り返しなし
 - (何もなし): (2, 3, 4)の内ランダムな回数分行動を繰り返す
 - Deterministic: 必ず4回連続で行動を繰り返す設定
 
-#### 環境に関する情報取得
+### 環境に関する情報取得
 
 強化学習においては,
 > **agent**(行動主体)が **environment**(環境)に **action**(行動)として働きかけ, その結果として, **observation**(状態)を観測し, **reward**(報酬)を得る.
@@ -147,6 +147,6 @@ env.reward_range
 env.unwrapped.ale.lives()
 ```
 
-### 実装
+## 実装
 
 "準備中"

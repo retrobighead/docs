@@ -66,7 +66,7 @@ plt.show()
 OpenAI Gym で提供されている環境については以下を参照.
 
 - [OpenAI Gym Environments](https://gym.openai.com/envs/#atari)
-- [Github - openai/gym](https://github.com/openai/gym/blob/master/docs/environments.md#third-party-environments)
+- [Github - openai/gym](https://github.com/openai/gym/wiki/Table-of-environments)
 
 ### 環境の構築
 
@@ -192,9 +192,9 @@ class TestWrapper(gym.Wrapper):
 
 他にも以下の3つのラッパーが提供されている.
 
-- gym.ObservationWrapper
-- gym.RewardWrapper
-- gym.ActionWrapper
+- gym.ObservationWrapper: 状態のラッパー
+- gym.RewardWrapper: 報酬のラッパー
+- gym.ActionWrapper: 行動のラッパー
 
 ```python
 class TestObservationWrapper(gym.ObservationWrapper):
@@ -307,3 +307,28 @@ env = FrameStack(env, k)
 ## 実装
 
 [Class Diagram](https://www.draw.io/#G1DmheQ8ubFrXAY8a4eYMdgeaplbKroL9f)
+
+### Environment の作成
+
+```python
+# 並列プロセス実行のための
+from stable_baselines.common.vec_env.subproc_vec_env import SubprocVecEnv
+
+def make_env(env_id, seed, rank):
+  # SubprocVecEnv を使用するために, 関数を一つ挟んで返す
+  def _thunk():
+    env = gym.make(env_id)
+    env = NoopResetEnv(env, noop_max=30)
+    env = MaxAndSkipEnv(env, skip=4)
+    env.seed(seed + rank)
+    env = EpisodicLifeEnv(env)
+    env = WarpFrame(env)
+
+    return env
+  return _thunk
+
+# NUM_PROCESSES: 並列プロセス実行数
+envs = [make_env(env_id, seed, i) for i in range(NUM_PROCESSES)]
+envs = SubprocVecEnv(envs)
+
+```

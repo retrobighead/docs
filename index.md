@@ -18,6 +18,8 @@
 - [Scipy](./learning_python/about_scipy.md)
 - [Matplotlib](./learning_python/about_matplotlib.md)
 - [Pandas](./learning_python/about_pandas.md)
+- [PyTorch](./learning_python/about_pytorch.md)
+- [Stable Baselines](./learning_python/about_stable_baselines.md)
 
 ### Learning about Unity
 

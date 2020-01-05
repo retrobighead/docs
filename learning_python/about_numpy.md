@@ -43,6 +43,7 @@ import numpy as np
 
 ## 1. Numpy配列の基礎
 
+
 ### 配列の作成
 
 ```python

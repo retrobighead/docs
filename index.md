@@ -27,7 +27,8 @@
 
 ### Reinforcement Learning
 
-- [作りながら学ぶ強化学習](https://book.mynavi.jp/manatee/series/detail/id=87626)
+- [OpenAI Spinning Up](https://spinningup.openai.com/en/latest/)
+- [作りながら学ぶ!深層強化学習](https://book.mynavi.jp/manatee/series/detail/id=87626)
 
 ### Learning about Algorithms
 

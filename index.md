@@ -23,6 +23,14 @@
 
 "準備中"
 
+### Learning about Algorithms
+
+- [Codility](./codility/contents.md)
+
+### Projects
+
+- [Space Invaders](./projects/about_space_invaders.md)
+
 ### External Pages
 
 #### Implementation
@@ -34,11 +42,3 @@
 - [OpenAI Spinning Up](https://spinningup.openai.com/en/latest/)
 - [深層強化学習のアルゴリズムまとめ](https://qiita.com/shionhonda/items/ec05aade07b5bea78081)
 - [作りながら学ぶ!深層強化学習](https://book.mynavi.jp/manatee/series/detail/id=87626)
-
-### Learning about Algorithms
-
-- [Codility](./codility/contents.md)
-
-### Projects
-
-- [Space Invaders](./projects/about_space_invaders.md)

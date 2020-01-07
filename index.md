@@ -7,10 +7,8 @@
 
 ### Building Environment
 
-- [Python の環境構築](./installation_python.md)
-- [Unity の環境構築]()
-
-[プログラミングでよく使う英単語のまとめ](https://qiita.com/Ted-HM/items/7dde25dcffae4cdc7923)
+- [Python の環境構築](./build_env/installation_python.md)
+- [Unity の環境構築](./build_env/installation_unity.md)
 
 ### Learning about Python
 
@@ -25,9 +23,16 @@
 
 "準備中"
 
-### Reinforcement Learning
+### External Pages
+
+#### Implementation
+
+- [プログラミングでよく使う英単語のまとめ](https://qiita.com/Ted-HM/items/7dde25dcffae4cdc7923)
+
+#### Reinforcement Learning
 
 - [OpenAI Spinning Up](https://spinningup.openai.com/en/latest/)
+- [深層強化学習のアルゴリズムまとめ](https://qiita.com/shionhonda/items/ec05aade07b5bea78081)
 - [作りながら学ぶ!深層強化学習](https://book.mynavi.jp/manatee/series/detail/id=87626)
 
 ### Learning about Algorithms

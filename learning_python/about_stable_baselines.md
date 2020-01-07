@@ -20,4 +20,30 @@ OpenAI によって開発されている, 研究などの目的のために基�
 
 が挙げられる.
 
-### installation
+OpenAI によって開発されている gym との相性が良い.
+
+### Quick Example
+
+```python
+import gym # 強化学習の環境
+
+from stable_baselines import PPO2 # PPO2 アルゴリズム
+from stable_baselines.common.policies import MlpPolicy # 方策が MLP(Multi Layler Perceptron)
+from stable_baselines.common.vec_env import DummyVecEnv # 並列プロセス実行環境
+
+env = gym.make('CartPole-v1')
+# Optional: PPO2 requires a vectorized environment to run
+# the env is now wrapped automatically when passing it to the constructor
+# env = DummyVecEnv([lambda: env])
+
+# 強化学習の学習モデルを宣言して学習
+model = PPO2(MlpPolicy, env, verbose=1)
+model.learn(total_timesteps=10000)
+
+# 賢くなったモデルで実行
+obs = env.reset()
+for i in range(1000):
+    action, _states = model.predict(obs)
+    obs, rewards, dones, info = env.step(action)
+    env.render()
+```

@@ -1,13 +1,23 @@
 <!-- パンくずリスト -->
 [top](../index.md) > [Learning Python](./contents.md) > [About Stable Baselines](./about_stable_baselines.md)
 
-### Link
-
-- [Stable Baselines Documentation](https://stable-baselines.readthedocs.io/en/master/)
-- [Github - RL Tutorial](https://github.com/araffin/rl-tutorial-jnrr19)
-- [Github - RL Baselines Zoo](https://github.com/araffin/rl-baselines-zoo)
-
 ## Stable Baselines
+
+ほとんど和訳。
+
+***
+
+### Contents
+
+- [Stable Baselines とは](#Stable-Baselines-とは)
+- [Quick Example](#Quick-Example)
+- [強化学習に関するTips](#強化学習に関するTips)
+  - [おすすめの学習方法](#おすすめの学習方法)
+  - [強化学習の限界](#強化学習の限界)
+  - [強化学習アルゴリズムの評価の仕方](#強化学習アルゴリズムの評価の仕方)
+- [External Links](#Links)
+
+***
 
 ### Stable Baselines とは
 
@@ -23,6 +33,8 @@ OpenAI によって開発されている, 研究などの目的のために基�
 が挙げられる.
 
 OpenAI によって開発されている gym との相性が良い.
+
+***
 
 ### Quick Example
 
@@ -50,7 +62,9 @@ for i in range(1000):
     env.render()
 ```
 
-### 強化学習について
+***
+
+### 強化学習に関するTips
 
 - [Reinforcement Learning Tips and Tricks](https://stable-baselines.readthedocs.io/en/master/guide/rl_tips.html)
 
@@ -64,3 +78,26 @@ for i in range(1000):
 また, 適切なハイパーパラメータを選択することも必要。デフォルト値に期待するな。[RL Baselines Zoo](https://github.com/araffin/rl-baselines-zoo) にチューニングされたエージェントが例示されており, 参考にするべし。
 
 #### 強化学習の限界
+
+Model-free な強化学習のアルゴリズムは学習が非効率的(数百万の試行が必要な場合も...)であり, 現時点で成功を収めているのはゲームやシミューレーション環境での model-based な強化学習。
+
+いい結果を得るためには, 適切な報酬関数をデザインすることが必要。また, 学習は不安定になりやすく, DDPG 等では突然パフォーマンスが下がったりする。TD3, TRPO, PPO 等ではこの問題への対策がなされている。
+
+#### 強化学習アルゴリズムの評価の仕方
+
+ほとんどのアルゴリズムは探索にランダムな要素を含むため, 学習とは分離されたテスト環境を用意する必要がある。N(5 ~ 20)エピソード毎にエージェントのパフォーマンスを評価して, エピソード毎の報酬を平均化する
+
+***
+
+### 強化学習のアルゴリズム一覧
+
+
+
+***
+
+### Links
+
+- [Stable Baselines Documentation](https://stable-baselines.readthedocs.io/en/master/)
+- [Github - RL Tutorial](https://github.com/araffin/rl-tutorial-jnrr19)
+- [Github - RL Baselines Zoo](https://github.com/araffin/rl-baselines-zoo)
+- [Deep Mimic Paper](https://xbpeng.github.io/projects/DeepMimic/index.html)

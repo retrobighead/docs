@@ -4,6 +4,8 @@
 ### Link
 
 - [Stable Baselines Documentation](https://stable-baselines.readthedocs.io/en/master/)
+- [Github - RL Tutorial](https://github.com/araffin/rl-tutorial-jnrr19)
+- [Github - RL Baselines Zoo](https://github.com/araffin/rl-baselines-zoo)
 
 ## Stable Baselines
 
@@ -47,3 +49,18 @@ for i in range(1000):
     obs, rewards, dones, info = env.step(action)
     env.render()
 ```
+
+### 強化学習について
+
+- [Reinforcement Learning Tips and Tricks](https://stable-baselines.readthedocs.io/en/master/guide/rl_tips.html)
+
+#### おすすめの学習方法
+
+1. [Resource Page](https://stable-baselines.readthedocs.io/en/master/guide/rl.html) を読んで強化学習を学ぶ
+1. [Stable Baselines](https://stable-baselines.readthedocs.io/en/master/) を読んで, [RL Tutorial Colab](https://github.com/araffin/rl-tutorial-jnrr19) をやってみる
+
+強化学習はデータセットが用意されておらず, エージェントが環境と相互作用しながらデータを収集するため, データの質は低くなりやすい。そのため, 環境の小さな違い (seed値の違い等) によって, 結果が大きく違うことがあり, いくつかの別の環境での実行と定量評価が必要。
+
+また, 適切なハイパーパラメータを選択することも必要。デフォルト値に期待するな。[RL Baselines Zoo](https://github.com/araffin/rl-baselines-zoo) にチューニングされたエージェントが例示されており, 参考にするべし。
+
+#### 強化学習の限界

@@ -91,6 +91,10 @@ Model-free な強化学習のアルゴリズムは学習が非効率的(数百�
 
 ### 強化学習のアルゴリズム一覧
 
+|Name|Recurrent|Box|Discrete|Multi Processing|
+|:--|:--|:--|:--|:--|
+|A2C|◯|◯|◯|◯|
+|ACER|◯|
 
 
 ***

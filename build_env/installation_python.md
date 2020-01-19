@@ -47,7 +47,7 @@ $ python --version # 確認 => 3.6.6
 
 - jupyter lab
 - gym
-- stable-baselines[mpi]==2.8.0
+- stable-baselines[mpi]==2.9.0
 - torch
 
 ```bash

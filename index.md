@@ -32,15 +32,22 @@
 ### Projects
 
 - [Space Invaders](./projects/about_space_invaders.md)
+- [AlphaZero](./projects/alpha_zero.md)
 
 ### External Pages
+
+#### Careers
+
+- [データサイエンティストスキルチェック 2019年版](https://www.datascientist.or.jp/common/docs/skillcheck_ver3.00.pdf)
 
 #### Implementation
 
 - [プログラミングでよく使う英単語のまとめ](https://qiita.com/Ted-HM/items/7dde25dcffae4cdc7923)
+- [nbconvert](https://nbconvert.readthedocs.io/en/latest/)
 
 #### Reinforcement Learning
 
 - [OpenAI Spinning Up](https://spinningup.openai.com/en/latest/)
+- [Open AI Blog](https://openai.com/blog/)
 - [深層強化学習のアルゴリズムまとめ](https://qiita.com/shionhonda/items/ec05aade07b5bea78081)
 - [作りながら学ぶ!深層強化学習](https://book.mynavi.jp/manatee/series/detail/id=87626)

@@ -69,8 +69,8 @@ $ pip install 'gym[atari]'
 
 # stable-baselines のインストール
 $ brew install cmake openmpi
-$ pip install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.14.0-py3-none-any.whl
-$ pip install stable-baselines[mpi]==2.8.0
+$ pip install tensorflow=1.14.0
+$ pip install stable-baselines
 
 # PyTorch のインストール
 $ pip install torch torchvision

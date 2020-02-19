@@ -6,6 +6,7 @@
 - [Trello - Retro Intelligence](https://trello.com/b/aJsBeCar/retro-intelligence)
 - [YouTube - RetroBigHead](https://www.youtube.com/channel/UCMre5mwvSMAKpYo_9m5OFww/featured?view_as=subscriber) (id: retro.big.head.ed@gmail.com, password: 勘太郎さん)
 - [Google Spreadsheet - channel planning](https://docs.google.com/spreadsheets/d/1KWf0sRrE5TbxznSftKLXn3bXDEHeBiXz6Xc4o5KweaU/edit?usp=sharing)
+- [Google Drive](https://drive.google.com/drive/folders/1iTwkYPwHSMCIiGZkefygcdjrhULu9ZIe?usp=sharing)
 
 ### Building Environment
 

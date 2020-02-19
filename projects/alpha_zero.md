@@ -15,3 +15,5 @@ DeepMind 社(現在は Google によって買収)によって開発された強�
 |AlphaZero|2018|汎用(チェス, 将棋, 囲碁)|[A general reinforcement learning algorithm that masters chess, shogi, and Go through self-play](https://science.sciencemag.org/content/362/6419/1140/tab-pdf)|
 |AlphaFold|2019|タンパク質構造予測|[AlphaFold: Using AI for scientific discovery](https://deepmind.com/blog/article/AlphaFold-Using-AI-for-scientific-discovery)|
 |AlphaStar|2019|[スタークラフトII](https://www.youtube.com/results?search_query=%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%AF%E3%83%A9%E3%83%95%E3%83%882)|[AlphaStar Mastering the Real-Time Strategy Game StarCraft II](https://deepmind.com/blog/article/AlphaStar-Grandmaster-level-in-StarCraft-II-using-multi-agent-reinforcement-learning)|
+
+### 
